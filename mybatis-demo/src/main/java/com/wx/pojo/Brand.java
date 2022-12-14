@@ -31,6 +31,14 @@ public class Brand {
         this.status = status;
     }
 
+    public Brand(String brandName, String companyName, Integer ordered, String description, Integer status) {
+        this.brandName = brandName;
+        this.companyName = companyName;
+        this.ordered = ordered;
+        this.description = description;
+        this.status = status;
+    }
+
     public Integer getId() {
         return id;
     }

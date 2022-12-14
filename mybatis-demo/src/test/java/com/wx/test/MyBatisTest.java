@@ -75,4 +75,51 @@ public class MyBatisTest {
         System.out.println(brands);
         sqlSession.close();
     }
+    @Test
+    public void addTest() throws IOException {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+        Brand brand = new Brand("王鑫", "有限公司", 0, "牛逼克拉斯", 1);
+        mapper.add(brand);
+        System.out.println(brand.getId());
+        sqlSession.close();
+    }
+    @Test
+    public void updateTest() throws IOException {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+        Brand brand = new Brand("", "", 0, "牛逼xxx克拉斯", 1);
+        brand.setId(7);
+        int update = mapper.update(brand);
+        System.out.println(update);
+        sqlSession.close();
+    }
+    @Test
+    public void delectTest() throws IOException {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+        mapper.delectById(7);
+        sqlSession.close();
+    }
+    @Test
+    public void delectsTest() throws IOException {
+        int[] ids={6,8,9,10};
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+        mapper.delectByIds(ids);
+        sqlSession.close();
+    }
+
 }
