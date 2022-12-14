@@ -52,10 +52,26 @@ public class MyBatisTest {
         //List<Brand> brands = mapper.selectByCondition(new Brand(0,"%三只%","%三只%"));
         //List<Brand> brands = mapper.selectByCondition(0, "%三只%", "%三只%");
         Map map=new HashMap();
-        map.put("status",0);
+        //map.put("status",0);
         map.put("companyName","%三只%");
         map.put("brandName","%三只%");
         List<Brand> brands = mapper.selectByCondition(map);
+        System.out.println(brands);
+        sqlSession.close();
+    }
+    @Test
+    public void selectByConditionSingle() throws IOException {
+        //1.加载核心配置文件，获取 SqlSessionFactory
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+        //List<Brand> brands = mapper.selectByCondition(new Brand(0,"%三只%","%三只%"));
+        //List<Brand> brands = mapper.selectByCondition(0, "%三只%", "%三只%");
+        Map map=new HashMap();
+        map.put("status",1);
+        List<Brand> brands = mapper.selectByConditionSingle(map);
         System.out.println(brands);
         sqlSession.close();
     }

@@ -50,9 +50,23 @@
     动态sql-->
     <select id="selectByCondition" resultMap="brandMap">
         select *
-        from tb_brand where
-                          <if test="status!=null">status=#{status}</if>
-                          <if test="companyName!=null and company!=''">and company_name like #{companyName}</if>
-                        <if test="brandName!=null and brandName!=''">and brand_name like #{brandName}</if>
+        from tb_brand
+            <where>
+                <if test="status!=null">and status=#{status}</if>
+                <if test="companyName!=null and company!=''">and company_name like #{companyName}</if>
+                <if test="brandName!=null and brandName!=''">and brand_name like #{brandName}</if>
+            </where>
+
+    </select>
+    <select id="selectByConditionSingle" resultMap="brandMap">
+        select *
+        from tb_brand
+        <where>
+            <choose>
+                <when test="status!=null">status=#{status}</when>
+                <when test="companyName!=null and company!=''">company_name like #{companyName}</when>
+                <when test="brandName!=null and brandName!=''">brand_name like #{brandName}</when>
+            </choose>
+        </where>
     </select>
 </mapper>
