@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/javaweb.iml" filepath="$PROJECT_DIR$/javaweb.iml" />
       <module fileurl="file://$PROJECT_DIR$/js/js.iml" filepath="$PROJECT_DIR$/js/js.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mybates.iml" filepath="$PROJECT_DIR$/mybates.iml" />
     </modules>
   </component>
 </project>

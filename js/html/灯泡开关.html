@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" onclick="on()" value="开灯">
+<img id="myimg" border="0" src="../img/on.gif" style="border: yellow">
+<input type="button" onclick="off()" value="关灯">
+
+
+
+<script>
+    function on(){
+        document.getElementById('myimg').src='../img/on.gif'
+    }
+    function off(){
+        document.getElementById('myimg').src='../img/off.gif'
+    }
+    var i=0;
+    setInterval(function (){
+
+        if(i%2==0){
+            on()
+        }else {
+            off()
+        }
+        i++;
+    },100)
+</script>
+</body>
+</html>

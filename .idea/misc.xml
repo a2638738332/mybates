@@ -3,12 +3,14 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/mybatis-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/tomcat-demo" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
         <option value="$PROJECT_DIR$/html/pom.xml" />
+        <option value="$PROJECT_DIR$/tomcat-demo/pom.xml" />
       </list>
     </option>
   </component>
